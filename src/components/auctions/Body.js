@@ -10,7 +10,7 @@ export const AuctionBody = () => {
   const [auction, setAuction] = useState(null);
   const { currentUser, globalMsg } = useContext(AuthContext);
   const { docs } = useFirestore('auctions');
-
+  
   return (
     <div className="py-5">
       <div className="container">

@@ -1,19 +1,24 @@
 import React, { useContext } from 'react';
 import Countdown from 'react-countdown';
 import { AuthContext } from '../../context/AuthContext';
+import moment from "moment-timezone";
+import CountdownTimer from './countdown';
 
-const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
-  if (completed) {
-    return null;
-  }
-
+export const AuctionCard = ({ item } ) => {
+  
+  // if (completed) {
+  //   return null;
+  // }
+  console.log(item)
+  //let timerData = countdownTimer(item.duration.hrs,item.duration.mins,item.duration.secs)
+ 
   return (
     <div className="col">
       <div className="card shadow-sm">
         <div
           style={{
             height: '320px',
-            backgroundImage: `url(${props.item.imgUrl})`,
+            backgroundImage: `url(${item.imgUrl})`,
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
@@ -22,43 +27,45 @@ const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
         />
 
         <div className="card-body">
-          <p className="lead display-6">{props.item.title}</p>
+          <p className="lead display-6">{item.title}</p>
           <div className="d-flex jsutify-content-between align-item-center">
             <h5>
-              {days * 24 + hours} hr: {minutes} min: {seconds} sec
+            {/* //{timerData.hours} hr: {timerData.minutes} min: {timerData.seconds} sec */}
+            <CountdownTimer hours={item.duration.hrs} minutes={item.duration.mins} seconds={item.duration.secs}/>
             </h5>
           </div>
-          <p className="card-text">{props.item.desc}</p>
+           <p className="card-text">{item.desc}</p>
           <div className="d-flex justify-content-between align-item-center">
+          {/*            
             <div>
-              {!props.owner ? (
+              {!item.owner ? (
                 <div
-                  onClick={() => props.bidAuction()}
+                  onClick={() => item.bidAuction()}
                   className="btn btn-outline-secondary"
                 >
                   Bid
                 </div>
-              ) : props.owner.email === props.item.email ? (
+              ) : owner.email === item.email ? (
                 <div
-                  onClick={() => props.endAuction(props.item.id)}
+                  onClick={() => endAuction(item.id)}
                   className="btn btn-outline-secondary"
                 >
                   Cancel Auction
                 </div>
-              ) : props.owner.email === props.item.curWinner ? (
+              ) : item.owner.email === item.curWinner ? (
                 <p className="display-6">Winner</p>
               ) : (
                 <div
                   onClick={() =>
-                    props.bidAuction(props.item.id, props.item.curPrice)
+                    item.bidAuction(item.id, item.curPrice)
                   }
                   className="btn btn-outline-secondary"
                 >
                   Bid
                 </div>
               )}
-            </div>
-            <p className="display-6">${props.item.curPrice}</p>
+            </div> */} 
+            <p className="display-6">${item.curPrice}</p>
           </div>
         </div>
       </div>
@@ -66,18 +73,3 @@ const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
   );
 };
 
-export const AuctionCard = ({ item }) => {
-  let expiredDate = item.duration;
-  const { currentUser, bidAuction, endAuction } = useContext(AuthContext);
-
-  return (
-    <Countdown
-      owner={currentUser}
-      date={expiredDate}
-      bidAuction={bidAuction}
-      endAuction={endAuction}
-      item={item}
-      renderer={renderer}
-    />
-  );
-};

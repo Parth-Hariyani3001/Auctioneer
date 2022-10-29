@@ -9,7 +9,10 @@ export const AddAuction = ({ setAuction }) => {
   const itemTitle = useRef();
   const itemDesc = useRef();
   const startPrice = useRef();
-  const itemDuration = useRef();
+  const itemDurationHrs = useRef();
+  const itemDurationMins = useRef();
+  const itemDurationSec = useRef();
+
   const itemImage = useRef();
 
   const { currentUser } = useContext(AuthContext);
@@ -27,22 +30,20 @@ export const AddAuction = ({ setAuction }) => {
       return setError('Please use a valid image');
     }
 
-    let currentDate = new Date();
-    let dueDate = currentDate.setHours(
-      currentDate.getHours() + itemDuration.current.value
-    );
+    let dueDateObj = {hrs:itemDurationHrs.current.value,mins:itemDurationMins.current.value,secs:itemDurationSec.current.value}
 
     let newAuction = {
       email: currentUser.email,
       title: itemTitle.current.value,
       desc: itemDesc.current.value,
       curPrice: startPrice.current.value,
-      duration: dueDate,
+      duration:dueDateObj,
       itemImage: itemImage.current.files[0],
     };
 
-    setAuction(newAuction);
-    closeForm();
+setAuction(newAuction);
+
+  closeForm();
   };
 
   return (
@@ -82,8 +83,10 @@ export const AddAuction = ({ setAuction }) => {
               </Col>
               <Col>
                 <Form.Group>
-                  <Form.Label>Item Duration in hours</Form.Label>
-                  <Form.Control type="number" required ref={itemDuration} />
+                  <Form.Label>Item Duration</Form.Label>
+                  <Form.Control type="number" required ref={itemDurationHrs}  />
+                  <Form.Control type="number" required ref={itemDurationMins}   />
+                  <Form.Control type="number" required ref={itemDurationSec}  />
                 </Form.Group>
               </Col>
             </Row>
