@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 import "./Footer.css";
 
 function Footer() {
@@ -24,7 +25,9 @@ function Footer() {
           </div>
           {/* Column3 */}
           <div className="col">
+            <Link to="/about">
             <h4>About us</h4>
+            </Link>
             <ui className="list-unstyled">
               <li>Info</li>
               <li>Query</li>
