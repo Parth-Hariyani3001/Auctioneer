@@ -1,4 +1,4 @@
-import { useMemo,useState } from "react";
+import { useEffect, useMemo,useState } from "react";
 
 
 function CountdownTimer({hours,minutes,seconds}) {
@@ -32,9 +32,8 @@ function CountdownTimer({hours,minutes,seconds}) {
         seconds: time.seconds - 1
       });
     }
-    useMemo(() => {
+    useEffect(() => {
         let timerID = setInterval(() => tick(), 1000);
-        console.log("sdasd")
         return () => clearInterval(timerID);
       });
     return (<>
