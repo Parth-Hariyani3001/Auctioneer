@@ -1,7 +1,13 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import  Row  from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import "./Query.css";
 
-function Enquiry() {
+function Query() {
 
     const[name,setName] = useState("");
     const[college,setCollege] = useState("");
@@ -29,23 +35,26 @@ function Enquiry() {
     }
 
     return(
-        <>
-            <center>
-                <h1>Fill the form</h1>
+        <div className="body-style">     
+                <h1 className="title-text">Enquiry Form</h1>
+                <br/><br/>
                 <form onSubmit={save}>
-                    <input type="text" placeholder="Enter Name" onChange={hName}/>
+                    <b><label>Enter Your Name : </label></b>
+                    <input type="text" placeholder="Enter Name" onChange={hName} className="input-text"/>
                     <br/><br/>
-                    <input type="text" placeholder="Enter Product Name" onChange={hCollege} />
+                    <b><label>Enter Product Name</label></b>
+                    <input type="text" placeholder="Enter Product Name" onChange={hCollege} className="input-text"/>
                     <br/><br/>
-                    <input type="number" placeholder="Enter Phone Number" onChange={hPhone} />
+                    <b><label>Enter Phone Number</label></b>
+                    <input type="number" placeholder="Enter Phone Number" onChange={hPhone} className="input-text"/>
                     <br/><br/>
-                    <textarea placeholder="Enter Query" rows={5} cols={22} onChange={hQuery} />
+                    <b><label>Enter Your Query</label></b>
+                    <textarea placeholder="Enter Query" rows={5} cols={22} onChange={hQuery} className="textarea-design"/>
                     <br/><br/>
-                    <input type="submit" />
+                    <input type="submit" className="submit-button"/>
                 </form>
-            </center>
-        </>
+        </div >
     );
 }
 
-export default Enquiry;
+export default Query;

@@ -25,13 +25,17 @@ function Footer() {
           </div>
           {/* Column3 */}
           <div className="col">
-            <Link to="/about">
+            
             <h4>About us</h4>
-            </Link>
-            <ui className="list-unstyled">
-              <li>Info</li>
-              <li>Query</li>
-            </ui>
+            
+            <ul className="list-unstyled">
+            <Link to="/about" style={{textDecoration:"none"}}>
+              <li style={{textDecoration:"none",color:"white"}}>Info</li>
+              </Link>
+              <Link to="/query" style={{textDecoration:"none"}}>
+              <li style={{textDecoration:"none",color:"white"}}>Query</li>
+              </Link>
+            </ul>
           </div>
         </div>
         <hr />

@@ -10,6 +10,7 @@ export const AuctionCard = ({ item } ) => {
   //   return null;
   // }
   console.log(item)
+  console.log(item.bidAuction)
   //let timerData = countdownTimer(item.duration.hrs,item.duration.mins,item.duration.secs)
  
   return (
@@ -35,8 +36,7 @@ export const AuctionCard = ({ item } ) => {
             </h5>
           </div>
            <p className="card-text">{item.desc}</p>
-          <div className="d-flex justify-content-between align-item-center">
-          {/*            
+          <div className="d-flex justify-content-between align-item-center">           
             <div>
               {!item.owner ? (
                 <div
@@ -64,7 +64,7 @@ export const AuctionCard = ({ item } ) => {
                   Bid
                 </div>
               )}
-            </div> */} 
+            </div>  
             <p className="display-6">${item.curPrice}</p>
           </div>
         </div>

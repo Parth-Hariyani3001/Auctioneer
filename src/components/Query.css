@@ -1,0 +1,51 @@
+.body-style{
+    /* font-family: Geneva; */
+    font-weight: 500;
+    font-size: 30px;
+    background-color: rgb(233, 233, 233);
+}
+/* label{
+    font-size: 30px;
+} */
+.title-text {
+    text-align: center;
+    color: #dc3545;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.input-text {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.textarea-design{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.submit-button{
+    text-align: center;
+    width: 100%;
+    background-color: #dc3545;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    position: center;
+}
+.submit-button:hover{
+    background-color: #45a049;
+  }
+  label{
+    color:#dc3545;
+}
