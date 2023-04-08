@@ -10,7 +10,8 @@ const app = firebase.initializeApp({
   projectId: "auctioneer-93ca2",
   storageBucket: "auctioneer-93ca2.appspot.com",
   messagingSenderId: "53549720238",
-  appId: "1:53549720238:web:67a3265cc2f7ba5177c33f"
+  appId: "1:53549720238:web:67a3265cc2f7ba5177c33f",
+  projectId : "auctioneer-93ca2"
 });
 
 export const timestamp = firebase.firestore.FieldValue.serverTimestamp;
